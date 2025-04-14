@@ -1,0 +1,366 @@
+@import '../../App.scss';
+
+.Home-container {
+    .section-1 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;  // center vertically
+      align-items: center;      // center horizontally
+      text-align: center;       // center text alignment
+      padding: 0 2rem;
+      height: calc(100vh - 140px); // full viewport height minus header if needed
+      background: url("/../public/hero.png") center/cover no-repeat;
+      color: $white;
+      
+      // Gradient overlay to increase text legibility
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
+        z-index: 1;
+      }
+      
+      // Ensure direct children appear over the overlay
+      > * {
+        position: relative;
+        z-index: 2;
+      }
+      
+      // Updated heading style with a smooth text shadow for enhanced readability
+      h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 0 auto 1rem auto;
+        line-height: 1.2;
+        max-width: 800px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      }
+      
+      // Updated paragraph style with improved spacing and subtle shadow
+      p {
+        max-width: 600px;
+        font-size: 1.125rem;
+        line-height: 1.5;
+        margin-bottom: 2rem;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+      }
+      
+      // Polished button styling
+      button {
+        padding: 15px 50px;
+        background-color: $pink;
+        color: $brown;
+        border: none;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        
+        &:hover {
+          background-color: lighten($pink, 10%);
+          transform: translateY(-3px);
+        }
+      }
+      
+      // Breakpoint for larger screens
+      @media (min-width: 1200px) {
+        h1 {
+          font-size: 4rem;
+        }
+        p {
+          font-size: 1.25rem;
+        }
+        button {
+          padding: 18px 60px;
+          font-size: 1rem;
+        }
+      }
+      
+      // Breakpoint for medium screens
+      @media (max-width: 768px) {
+        padding: 0 15px;
+        h1 {
+          font-size: 2.6rem;
+        }
+        p {
+          font-size: 1rem;
+        }
+      }
+      
+      // Breakpoint for small screens
+      @media (max-width: 600px) {
+        height: calc(100vh - 120px);
+        h1 {
+          font-size: 2.2rem;
+        }
+        p {
+          font-size: 0.95rem;
+        }
+        button {
+          padding: 12px 30px;
+          font-size: 0.9rem;
+        }
+      }
+  
+
+
+        .order-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .modal-content {
+                background: $l-pink;
+                padding: 2rem;
+                border-radius: 0; // squary
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+                width: 90%;
+                max-width: 600px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+
+                h2 {
+                    color: $brown;
+                    font-size: 1.6rem;
+                    font-weight: 600;
+                    margin: 0;
+                }
+
+                .options {
+                    display: flex;
+                    gap: 1rem;
+                    justify-content: space-between;
+
+                    .option {
+                        text-decoration: none; // remove underline
+                        color: inherit;
+                        background: white;
+                        border: 2px solid $brown;
+                        flex: 1;
+                        padding: 1.5rem 1rem;
+                        text-align: center;
+                        cursor: pointer;
+                        transition: background 0.3s;
+                        border-radius: 0; // squary
+
+                        img {
+                            width: 80px;
+                            height: auto;
+                            margin-bottom: 1rem;
+                        }
+
+                        p {
+                            color: $brown;
+                            font-weight: 600;
+                            font-size: 1rem;
+                        }
+
+                        &:hover {
+                            background: lighten($l-pink, 5%);
+                        }
+                    }
+                }
+
+                .close-btn {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    background: none;
+                    border: none;
+                    font-size: 1.5rem;
+                    color: $brown;
+                    cursor: pointer;
+                }
+            }
+        }
+
+
+
+    }
+
+
+
+    .section-2 {
+        background-color: $white;
+        padding: 50px 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 30px;
+        width: 100%;
+        overflow: hidden;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .card {
+                width: 23%;
+                position: relative;
+                // border-radius: 12px;
+                overflow: hidden;
+                box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 20px;
+                margin-bottom: 50px;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                .overlay {
+                    position: absolute;
+                    width: 100%;
+                    bottom: 30px;
+                    left: 50%;
+                    transform: translateX(-50%);
+
+                    h3 {
+                        text-align: center;
+                        color: $white;
+                        font-size: 1.5rem;
+                        width: 100%;
+                        background-color: #0000007a;
+                        padding: 5px;
+
+                        @media (max-width: 1300px) {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+
+                @media (max-width:960px) {
+                    width: 48%;
+
+                    @media (max-width:400px) {
+                        width: 100%;
+                    }
+                }
+
+
+                .national-available {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 0;
+                    height: 0;
+                    border-top: 80px solid $pink; // you can change this color or variable
+                    border-left: 80px solid transparent;
+
+                    // Optionally, place the map icon inside the triangle
+                    img {
+                        position: absolute;
+                        top: -70px;
+                        right: 12px;
+                        width: 30px;
+                        height: 25px;
+                    }
+                }
+
+
+            }
+        }
+
+        @media (max-width:750px) {
+            padding: 50px;
+
+            @media (max-width: 500px) {
+                padding: 50px 20px;
+
+            }
+        }
+
+
+    }
+
+
+
+    .section-3 {
+        background-color: $l-pink;
+        padding: 3rem 1rem;
+        text-align: center;
+        color: $brown;
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+
+            .step {
+                background-color: white;
+                border: 2px solid $brown;
+                // border-radius: 12px;
+                padding: 1.5rem;
+                width: 180px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    margin-bottom: 1rem;
+                }
+
+                p {
+                    margin: 0;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .note {
+            background-color: white;
+            //   border-radius: 12px;
+            border: 2px dashed $brown;
+            padding: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1rem;
+
+            p {
+                margin: 0.5rem 0;
+            }
+
+            strong {
+                color: $brown;
+            }
+        }
+
+
+        margin-bottom: 150PX;
+    }
+
+
+}

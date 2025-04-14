@@ -1,0 +1,120 @@
+@import '../../App.scss';
+
+
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 40;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+.cart-sidebar {
+    position: fixed;
+    background-color: $white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 45;
+    padding-top: 140px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+
+    // Default: Desktop (slide from right)
+    top: 0px;
+    right: 0;
+    width: 450px;
+    height: 100vh;
+    transform: translateX(100%);
+
+    &.open {
+        transform: translateX(0);
+    }
+
+    .cart-header,
+    .cart-footer {
+        padding: 1.5rem;
+        border-color: #eaeaea;
+        @media (max-width: 768px) {
+            padding: 1rem;
+        }
+    }
+
+    .cart-header {
+        border-bottom: 1px solid;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h2 {
+            font-size: 22px;
+            font-weight: 500;
+            color: $brown;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    }
+
+    .cart-items {
+        flex-grow: 1;
+        padding: 1rem;
+        overflow-y: auto;
+    }
+
+    .cart-footer {
+        border-top: 1px solid;
+
+        .checkout-btn {
+
+            width: 100%;
+            padding: 12px;
+
+            &:hover {
+                transform: translateY(-5px);
+                background-color: $l-pink;
+            }
+
+            .material-symbols-outlined {
+                font-size: 20px;
+                font-variation-settings:
+                    'FILL' 1,
+                    'wght' 300,
+                    'GRAD' 0,
+                    'opsz' 22;
+
+            }
+
+        }
+    }
+}
+
+// 📱 Mobile: Slide from bottom
+@media (max-width: 768px) {
+    .cart-sidebar {
+        width: 100vw;
+        height: 80vh;
+        bottom: 0;
+        top: auto;
+        right: 0;
+        transform: translateY(100%);
+        padding-top: 0px;
+
+        &.open {
+            transform: translateY(0);
+        }
+    }
+}

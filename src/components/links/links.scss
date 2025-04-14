@@ -1,0 +1,24 @@
+@import '../../App.scss';
+
+
+
+.links {
+    font-size: 19px;
+    font-weight: 300;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+
+    a {
+        color: $brown;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+            transform: translateY(-3px);
+        }
+    }
+}
+
+

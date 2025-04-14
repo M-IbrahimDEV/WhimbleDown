@@ -1,0 +1,51 @@
+
+@import '../../App.scss';
+
+.quantity-counter {
+    display: flex;
+    align-items: center;
+    // gap: 10px;
+    margin-top: auto;
+    width: 100%;
+
+    .btn-qty,
+    .btn-remove {
+        width: 50px;
+        height: 50px;
+        &:hover{
+            background-color: $l-pink;
+        }
+    }
+    .qty-value{
+        font-size: 18px;
+        width: 50px;
+        text-align: center;
+    }
+
+    .btn-remove {
+        border-color: red;
+        margin-left: auto;
+        .delete-icon {
+            color: red;
+        }
+        &:hover{
+            background-color: rgb(255, 211, 211);
+        }
+    }
+    .btn-remove.disabled {
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+        .btn-qty,
+        .btn-remove {
+            width: 30px;
+            height: 30px;
+        }
+        .qty-value{
+            width: 30px;
+        }
+
+    }
+}

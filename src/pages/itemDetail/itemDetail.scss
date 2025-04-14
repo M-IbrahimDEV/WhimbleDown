@@ -1,0 +1,141 @@
+// itemDetails.scss
+@import '../../App.scss';
+.item-details {
+    width: 100%;
+    margin: 0 auto;
+
+    .details-header {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: auto;
+        margin-bottom: 3rem;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 2rem;
+
+        .details-image {
+            width: calc(50% - 1rem);
+            aspect-ratio: 1 / 1;
+            background-color: red;
+
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        .details-info {
+            flex: 1;
+            width: calc(50% - 1rem);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            color: $brown;
+
+            h1 {
+                font-size: 1.8rem;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+            }
+
+            .price {
+                font-size: 1.2rem;
+                font-weight: 400;
+                margin-bottom: 1rem;
+            }
+
+            .description {
+                font-size: 0.8rem;
+                line-height: 1.5;
+                color: $black;
+
+                b {
+                    color: $brown;
+                }
+            }
+
+            .quantity-counter {
+                margin: 1rem 0;
+
+                .btn-remove {
+                    margin-left: 50px;
+                }
+            }
+
+            .btn-add {
+                width: 100%;
+                padding: 12px;
+                margin: 12px 0 1rem 0;
+
+                &:hover {
+                    background-color: $l-pink;
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+
+            .details-image {
+                width: 100%;
+            }
+
+            .details-info {
+                width: 100%;
+            }
+        }
+    }
+
+    .related-items {
+        padding: 2rem;
+        padding-bottom: 4rem;
+        margin-bottom: 4rem;
+
+        background-color: $pink;
+        width: 100%;
+
+        .heading{
+            width: 100%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            color: $brown;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .related-items-grid {
+            max-width: 1200px;
+            margin: auto;
+
+            .related-grid {
+
+                display: grid;
+                gap: 1.5rem;
+
+                grid-template-columns: repeat(4, 1fr);
+
+                @media (max-width: 900px) {
+                    grid-template-columns: repeat(2, 1fr);
+        
+                    @media (max-width: 400px) {
+                        grid-template-columns: repeat(1, 1fr);
+                    }
+                }
+            }
+
+        }
+    }
+}
