@@ -40,10 +40,15 @@ const Home = () => {
                     <p>
                         Our food is made with love and care, and we bake it with love, from scratch &amp; fresh every day, just for you
                     </p>
-                    <button className='global-button' onClick={handleOrderClick}>Order Now</button>
+                    <button className='global-button order-btn' onClick={handleOrderClick}>Order Now</button>
 
 
-                    {showModal && (
+
+
+                </section>
+
+
+                {showModal && (
                         <div
                             className="order-modal"
                             onClick={(e) => {
@@ -69,10 +74,6 @@ const Home = () => {
                             </div>
                         </div>
                     )}
-
-
-
-                </section>
 
 
                 <section className='section-2'>
