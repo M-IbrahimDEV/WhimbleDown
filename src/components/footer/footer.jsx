@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-top">
         <div className="footer-logo">
-          <h2>WHIMBLEDOWN</h2>
+          <h2>WIMBLEDOWN</h2>
         </div>
         <nav className="footer-nav">
           <ul>
@@ -33,7 +33,7 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <p className="copyright">
-          &copy; {currentYear} WHIMBLEDOWN. All rights reserved.
+          &copy; {currentYear} WIMBLEDOWN. All rights reserved.
         </p>
         <div className="developer">
           <p>developed by&nbsp;</p>

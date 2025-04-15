@@ -69,7 +69,7 @@ const Navbar = ({ cartIconRef }) => {
                         </span>
 
                     </span>
-                    <div className="logo">WHIMBLEDOWN</div>
+                    <div className="logo">WIMBLEDOWN</div>
                     <Link />
                 </div>
                 <div className="nav-right">

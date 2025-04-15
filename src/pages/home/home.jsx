@@ -36,7 +36,7 @@ const Home = () => {
             <div className='Home-container'>
 
                 <section className='section-1'>
-                    <h1>Whimble Down brings taste to your doorstep</h1>
+                    <h1>WimbleDown brings taste to your doorstep</h1>
                     <p>
                         Our food is made with love and care, and we bake it with love, from scratch &amp; fresh every day, just for you
                     </p>
