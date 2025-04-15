@@ -35,7 +35,7 @@ const Footer = () => {
         <p className="copyright">
           &copy; {currentYear} WIMBLEDOWN. All rights reserved.
         </p>
-        <div className="developer">
+        {/* <div className="developer">
           <p>developed by&nbsp;</p>
           <a 
             href="https://m-ibrahimdev.netlify.app/" 
@@ -47,7 +47,7 @@ const Footer = () => {
               open_in_new
             </span>
           </a>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

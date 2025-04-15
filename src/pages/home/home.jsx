@@ -78,16 +78,6 @@ const Home = () => {
 
                 <section className='section-2'>
                     <h1>Categories</h1>
-                    {/* <div className="gallery">
-                        {categories.map((cat, i) => (
-                            <div key={i} className="card" onClick={handleOrderClick}>
-                                <img src={cat.img} alt={cat.title} />
-                                <div className="overlay">
-                                    <h3>{cat.title}</h3>
-                                </div>
-                            </div>
-                        ))}
-                    </div> */}
 
                     <div className="gallery">
                         {categories.map((cat, i) => {
