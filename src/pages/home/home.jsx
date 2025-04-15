@@ -1,4 +1,5 @@
-import React, {  useState } from 'react';
+// import React, {  useState } from 'react';
+import React, { useState, useEffect, useMemo} from 'react';
 import { Link } from 'react-router-dom';
 import './home.scss';
 
@@ -19,6 +20,39 @@ const Home = () => {
 
     const [showModal, setShowModal] = useState(false);
 
+
+    //-----------------------------------
+
+    const [isLoading, setIsLoading] = useState(true);
+
+    const images = useMemo(() => [
+        "/../public/hero.png", // hero background image in section-1
+        "/regular.png",
+        "/brownie.png",
+        "/jumbo.png",
+        "/bread.png",
+        "/map.png",       // used in modal and on cards
+        "/delivery.png",  // used in modal
+    ], []);
+    
+    useEffect(() => {
+        let loadedCount = 0;
+        images.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = img.onerror = () => {
+                loadedCount++;
+                if (loadedCount === images.length) {
+                    setIsLoading(false);
+                }
+            };
+        });
+    }, [images]);
+
+
+
+    //------------------------------------------
+
     const handleOrderClick = () => {
         setShowModal(true);
     };
@@ -27,7 +61,16 @@ const Home = () => {
         setShowModal(false);
     };
 
+    if (isLoading) {
+        return (
+          <div className="loader-container">
+            <div className="loader">
+            <div id="out"><div id="in"></div></div></div>
 
+          </div>
+        );
+      }
+      
     return (
         <>
             <Topbar />
@@ -49,31 +92,31 @@ const Home = () => {
 
 
                 {showModal && (
-                        <div
-                            className="order-modal"
-                            onClick={(e) => {
-                                // Close only if the click target is the backdrop itself
-                                if (e.target.classList.contains("order-modal")) {
-                                    handleClose();
-                                }
-                            }}
-                        >
-                            <div className="modal-content">
-                                <h2>Select an Order Type</h2>
-                                <div className="options">
-                                    <Link to="/menu" className="option">
-                                        <img src="/map.png" alt="Nationwide Order" />
-                                        <p>Nationwide Order</p>
-                                    </Link>
-                                    <Link to="/menu" className="option">
-                                        <img src="/delivery.png" alt="Same Day Delivery" />
-                                        <p>Local Delivery or Pickup</p>
-                                    </Link>
-                                </div>
-                                <button className="close-btn" onClick={handleClose}>×</button>
+                    <div
+                        className="order-modal"
+                        onClick={(e) => {
+                            // Close only if the click target is the backdrop itself
+                            if (e.target.classList.contains("order-modal")) {
+                                handleClose();
+                            }
+                        }}
+                    >
+                        <div className="modal-content">
+                            <h2>Select an Order Type</h2>
+                            <div className="options">
+                                <Link to="/menu" className="option">
+                                    <img src="/map.png" alt="Nationwide Order" />
+                                    <p>Nationwide Order</p>
+                                </Link>
+                                <Link to="/menu" className="option">
+                                    <img src="/delivery.png" alt="Same Day Delivery" />
+                                    <p>Local Delivery or Pickup</p>
+                                </Link>
                             </div>
+                            <button className="close-btn" onClick={handleClose}>×</button>
                         </div>
-                    )}
+                    </div>
+                )}
 
 
                 <section className='section-2'>
